@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/black-street');
+
 /* Shared styles for Chickmax website */
 
 * {
@@ -12,6 +14,15 @@ html {
 
 body {
     overflow-x: hidden;
+}
+
+.chickmax-nav-logo {
+    font-family: 'Black Street', 'Great Vibes', 'Brush Script MT', cursive !important;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 400 !important;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
 }
 
 /* Utility Classes */
