@@ -14,7 +14,6 @@ chickmaxv4/
 │   └── shared.css      # Shared styles for all pages
 ├── js/
 │   └── shared.js       # Shared JavaScript (cart, interactions)
-└── assets/             # For images, icons, etc.
 ```
 
 ## Pages Status
