@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chickmax - Checkout</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/shared.css">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#1b1c19",
+                        "on-tertiary-fixed": "#271900",
+                        "inverse-surface": "#30312e",
+                        "tertiary-fixed": "#ffdea8",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#a73a00",
+                        "on-surface-variant": "#5b4137",
+                        "tertiary-fixed-dim": "#ffba20",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#5e4200",
+                        "background": "#fbf9f4",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "tertiary-container": "#bf8900",
+                        "primary": "#a73a00",
+                        "on-background": "#1b1c19",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fbf9f4",
+                        "primary-fixed-dim": "#ffb59a",
+                        "outline": "#8f7065",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#ffdbce",
+                        "outline-variant": "#e4beb1",
+                        "surface-container-high": "#eae8e3",
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-primary-fixed": "#370e00",
+                        "primary-container": "#ff5c00",
+                        "surface-container": "#f0eee9",
+                        "on-primary-container": "#521800",
+                        "surface-dim": "#dbdad5",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "inverse-on-surface": "#f2f1ec",
+                        "surface-variant": "#e4e2dd",
+                        "surface-container-highest": "#e4e2dd",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#ffb59a",
+                        "surface": "#fbf9f4",
+                        "secondary-container": "#e2dfde",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#7c5800",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-tertiary-container": "#3b2800",
+                        "on-primary-fixed-variant": "#802a00",
+                        "secondary": "#5f5e5e",
+                        "surface-container-low": "#f5f3ee",
+                        "on-secondary-container": "#636262"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "gutter": "24px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "margin-mobile": "16px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Work Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Work Sans"],
+                        "body-md": ["Work Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "label-lg": ["Work Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "label-md": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "1.1", "fontWeight": "800"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .shadow-warm {
+            box-shadow: 0 4px 12px rgba(255, 92, 0, 0.08);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-on-surface shadow-sm docked full-width top-0 sticky z-50 transition-all duration-300" id="main-header">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-7xl mx-auto">
+<div class="font-headline-lg text-headline-lg font-black text-primary dark:text-primary-fixed">Chickmax</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg hover:text-primary transition-colors duration-200" href="index.html">Home</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg hover:text-primary transition-colors duration-200" href="menu.html">Menu</a>
+<a class="text-primary font-bold border-b-2 border-primary font-label-lg hover:text-primary transition-colors duration-200" href="orders.html">Checkout</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant dark:text-surface-variant text-[24px] hover:text-primary transition-colors active:scale-95 transition-transform duration-150" data-icon="shopping_basket">shopping_basket</button>
+<button class="material-symbols-outlined text-on-surface-variant dark:text-surface-variant text-[24px] hover:text-primary transition-colors active:scale-95 transition-transform duration-150" data-icon="person">person</button>
+</div>
+</nav>
+</header>
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Delivery Details -->
+<div class="lg:col-span-7 space-y-lg">
+<section>
+<div class="flex items-center justify-between mb-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Delivery Address</h2>
+<button class="text-primary font-label-lg flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[18px]">add</span> Add New
+                        </button>
+</div>
+<!-- Saved Addresses Bento -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md mb-lg">
+<label class="relative cursor-pointer group">
+<input checked="" class="peer sr-only" name="address" type="radio"/>
+<div class="p-md bg-surface-container-lowest border-2 border-outline-variant rounded-xl group-hover:border-primary transition-all shadow-warm peer-checked:border-primary peer-checked:bg-primary-fixed/20 h-full">
+<div class="flex items-center justify-between mb-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="home">home</span>
+<span class="font-label-lg text-on-surface">Home</span>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-outline group-hover:border-primary peer-checked:bg-primary peer-checked:border-primary flex items-center justify-center">
+<div class="w-2 h-2 bg-white rounded-full"></div>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant">123 Sunset Boulevard, Apartment 4B<br/>Downtown District, DXB 90210</p>
+<p class="text-label-md mt-sm text-secondary">+971 50 123 4567</p>
+</div>
+</label>
+<label class="relative cursor-pointer group">
+<input class="peer sr-only" name="address" type="radio"/>
+<div class="p-md bg-surface-container-lowest border-2 border-outline-variant rounded-xl group-hover:border-primary transition-all shadow-warm peer-checked:border-primary peer-checked:bg-primary-fixed/20 h-full">
+<div class="flex items-center justify-between mb-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="work">work</span>
+<span class="font-label-lg text-on-surface">Office</span>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-outline group-hover:border-primary peer-checked:bg-primary peer-checked:border-primary flex items-center justify-center">
+<div class="w-2 h-2 bg-white rounded-full"></div>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant">Tech Plaza, Floor 12, Office 1205<br/>Business Bay, DXB 55432</p>
+<p class="text-label-md mt-sm text-secondary">+971 50 987 6543</p>
+</div>
+</label>
+</div>
+<!-- Detailed Input Form -->
+<div class="bg-surface-container-low p-md md:p-lg rounded-xl border border-outline-variant">
+<h3 class="font-label-lg mb-md text-on-surface">Manually Enter Details</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="space-y-xs">
+<label class="text-label-md text-on-surface-variant px-1">Full Name</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-lg px-4 py-3 outline-none transition-all" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-xs">
+<label class="text-label-md text-on-surface-variant px-1">Phone Number</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-lg px-4 py-3 outline-none transition-all" placeholder="+971 00 000 0000" type="tel"/>
+</div>
+<div class="md:col-span-2 space-y-xs">
+<label class="text-label-md text-on-surface-variant px-1">Delivery Instructions (Optional)</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-lg px-4 py-3 outline-none transition-all" placeholder="Gate code, landmark, or specific drop-off point..." rows="3"></textarea>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-md">Payment Method</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<button class="flex flex-col items-center justify-center p-md border-2 border-primary bg-primary-fixed/10 rounded-xl gap-2 transition-all">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="payments">payments</span>
+<span class="font-label-lg">Cash on Delivery</span>
+</button>
+<button class="flex flex-col items-center justify-center p-md border-2 border-outline-variant bg-surface-container-lowest rounded-xl gap-2 hover:border-primary transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl" data-icon="credit_card">credit_card</span>
+<span class="font-label-lg">Credit/Debit Card</span>
+</button>
+<button class="flex flex-col items-center justify-center p-md border-2 border-outline-variant bg-surface-container-lowest rounded-xl gap-2 hover:border-primary transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-lg">Apple Pay</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary -->
+<aside class="lg:col-span-5 sticky top-24">
+<div class="bg-surface-container-lowest rounded-2xl shadow-lg border border-outline-variant overflow-hidden">
+<div class="bg-on-surface p-md text-white">
+<h2 class="font-headline-md text-headline-md text-primary-fixed">Your Order Summary</h2>
+</div>
+<div class="p-md md:p-lg space-y-md">
+<!-- Order Items -->
+<div class="space-y-md border-b border-outline-variant pb-md">
+<div class="flex gap-4">
+<div class="w-20 h-20 rounded-xl bg-surface-container overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A high-angle close-up shot of a traditional Mandi dish with aromatic basmati rice, tender roasted chicken, and toasted nuts on a large platter. The lighting is warm and cinematic, highlighting the steam rising from the hot food against a dark charcoal background. The styling is premium and appetizing, utilizing the Chickmax brand's high-contrast and high-energy aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkzlYX_bYQ6Mbc8_wwhB-HltIjJXHpeIFZhl5FcTZQ-v2Iv9qfua64szUvtSNEFXiueUeoW2nldFHaIo7PcP4TL9DS4TgKR29I5o0VIt3ArXHl-YMN1TPmoYEYJfmVrcypbcWmM4KPIld3Fg6rg069C8kmO4PUYfiKC15kdf-E2cXksUInZ5EzC_vkyx9iVAM68TS89UQA9Poj8ZS_tfLJcTD2acJOQxqAcrR_R3MRs6CEtwLYsnGwZ8n25JZrFyeEIjwLGSFYCLEW"/>
+</div>
+<div class="flex-grow flex flex-col justify-center">
+<div class="flex justify-between items-start">
+<h4 class="font-label-lg text-on-surface">Chicken Mandi Platter</h4>
+<span class="font-label-lg text-primary">$24.00</span>
+</div>
+<p class="text-label-md text-on-surface-variant">Regular Size • Spicy</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-label-md bg-surface-container-high px-2 py-0.5 rounded">Qty: 1</span>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-20 h-20 rounded-xl bg-surface-container overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A tall, creamy vanilla milkshake in a glass with a large dollop of whipped cream and colorful sprinkles on top. The background is a clean, bright minimalist setting with soft orange accents that match the Chickmax brand colors. The lighting is bright and cheerful, evoking a high-quality fast-casual dining experience for a modern audience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkOjKUychqX5sN32E20oyeQu_tNrjBPpA6FKFyVEW1SoqoLp39l8Ax5dNXKaSsPmRusaUw16Ne8AXRcG1OWVL6xEMbghZdS_ivGoeOLHottL_C-EEwt3E7sGCcKXnlcLzwcFHxvUnUsLIaN_j7fT2cBUgT9ZoUbgH4jDAn21oIXGJVL6dsL1AsC7k-dTNouXq8nSZQUvlF9hPLQtc_3ZcJ49giFnvku6tqRa7VPP3jUJ-cWUTZd4lDSARTM4epyd-C9BxrLA1W8ybC"/>
+</div>
+<div class="flex-grow flex flex-col justify-center">
+<div class="flex justify-between items-start">
+<h4 class="font-label-lg text-on-surface">Vanilla Sizzle Shake</h4>
+<span class="font-label-lg text-primary">$8.50</span>
+</div>
+<p class="text-label-md text-on-surface-variant">Extra Whipped Cream</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-label-md bg-surface-container-high px-2 py-0.5 rounded">Qty: 1</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Price Breakdown -->
+<div class="space-y-sm text-body-md text-on-surface-variant">
+<div class="flex justify-between">
+<span>Subtotal</span>
+<span>$32.50</span>
+</div>
+<div class="flex justify-between">
+<span>Delivery Fee</span>
+<span class="text-primary font-semibold">FREE</span>
+</div>
+<div class="flex justify-between">
+<span>Service Fee</span>
+<span>$1.50</span>
+</div>
+<div class="flex justify-between pt-md border-t border-outline-variant">
+<span class="font-headline-md text-on-surface">Total Amount</span>
+<span class="font-headline-md text-primary">$34.00</span>
+</div>
+</div>
+<!-- Promo Code -->
+<div class="flex gap-2">
+<input class="flex-grow bg-surface-container border border-outline-variant rounded-lg px-4 py-2 text-label-md outline-none focus:border-primary" placeholder="Promo Code" type="text"/>
+<button class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-lg font-label-lg hover:bg-outline-variant transition-colors">Apply</button>
+</div>
+<!-- Main Action Button -->
+<button class="w-full bg-primary-container text-on-primary-container font-headline-md py-4 rounded-full shadow-warm hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2">
+                            Place Order
+                            <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+<p class="text-[10px] text-center text-on-surface-variant px-md">
+                            By placing your order, you agree to Chickmax's Terms of Service and Privacy Policy.
+                        </p>
+</div>
+</div>
+<!-- Trust Badges -->
+<div class="mt-md flex justify-center items-center gap-lg grayscale opacity-50">
+<div class="flex items-center gap-1 text-label-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified_user">verified_user</span>
+                        Secure Payment
+                    </div>
+<div class="flex items-center gap-1 text-label-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="timer">timer</span>
+                        30m Delivery
+                    </div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-md bg-on-surface dark:bg-surface-container-lowest border-t border-outline-variant">
+<div class="space-y-md">
+<h3 class="font-headline-md text-headline-md text-primary-fixed">Chickmax</h3>
+<p class="text-surface-variant dark:text-on-surface-variant body-md max-w-sm">Premium charcoal grilled chicken and authentic flavors delivered hot to your doorstep.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-primary-fixed/20 flex items-center justify-center text-primary-fixed hover:bg-primary-fixed/40 transition-colors" href="#">
+<span class="material-symbols-outlined">social_leaderboard</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-primary-fixed/20 flex items-center justify-center text-primary-fixed hover:bg-primary-fixed/40 transition-colors" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-gutter">
+<div class="space-y-sm">
+<h4 class="text-primary-fixed font-label-lg mb-2">Company</h4>
+<nav class="flex flex-col gap-2">
+<a class="text-surface-variant dark:text-on-surface-variant hover:text-primary-fixed-dim transition-colors label-lg" href="#">About Us</a>
+<a class="text-surface-variant dark:text-on-surface-variant hover:text-primary-fixed-dim transition-colors label-lg" href="#">Contact Support</a>
+<a class="text-surface-variant dark:text-on-surface-variant hover:text-primary-fixed-dim transition-colors label-lg" href="#">Franchise</a>
+</nav>
+</div>
+<div class="space-y-sm">
+<h4 class="text-primary-fixed font-label-lg mb-2">Legal</h4>
+<nav class="flex flex-col gap-2">
+<a class="text-surface-variant dark:text-on-surface-variant hover:text-primary-fixed-dim transition-colors label-lg" href="#">Terms of Service</a>
+<a class="text-surface-variant dark:text-on-surface-variant hover:text-primary-fixed-dim transition-colors label-lg" href="#">Privacy Policy</a>
+</nav>
+</div>
+</div>
+<div class="md:col-span-2 pt-lg mt-lg border-t border-outline/20 text-center text-surface-variant/60 text-label-md">
+            © 2024 Chickmax. All rights reserved.
+        </div>
+</footer>
+<!-- Mobile BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface dark:bg-inverse-surface shadow-[0_-4px_12px_rgba(255,92,0,0.08)] md:hidden rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 transition-transform px-4 py-1" href="index.html">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md-mobile">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 transition-transform px-4 py-1" href="menu.html">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="font-label-md text-label-md-mobile">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 active:scale-90 transition-transform hover:scale-105" href="orders.html">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label-md text-label-md-mobile">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 transition-transform px-4 py-1" href="contact.html">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-md text-label-md-mobile">Orders</span>
+</a>
+</nav>
+<script src="js/shared.js"></script>
+<script>
+        // Header shadow on scroll micro-interaction
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.add('shadow-sm');
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Simple interaction for address selection
+        const addressRadios = document.querySelectorAll('input[name="address"]');
+        addressRadios.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                // Address change logic would go here
+                console.log('Address changed');
+            });
+        });
+
+        // Pulsing Effect for CTA Button
+        const pulseButton = document.querySelector('button.bg-primary-container');
+        if(pulseButton) {
+            setInterval(() => {
+                pulseButton.classList.add('ring-4', 'ring-primary/30');
+                setTimeout(() => pulseButton.classList.remove('ring-4', 'ring-primary/30'), 500);
+            }, 3000);
+        }
+    </script>
+</body></html>

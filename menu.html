@@ -1,0 +1,500 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<title>Chickmax - Premium Menu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Work+Sans:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/shared.css">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sizzle-glow:hover {
+            box-shadow: 0 0 20px rgba(255, 92, 0, 0.15);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a73a00;
+            border-radius: 10px;
+        }
+        .menu-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(104px, 1fr);
+            gap: clamp(10px, 2.8vw, 24px);
+            align-items: stretch;
+        }
+        .menu-hero-main {
+            min-height: 280px;
+        }
+        .menu-hero-side {
+            display: grid;
+            grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+            gap: clamp(10px, 2.8vw, 24px);
+        }
+        .menu-hero-side-card {
+            min-height: 0;
+        }
+        .menu-hero-main > img,
+        .menu-hero-side-card > img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .menu-hero-main,
+        .menu-hero-side {
+            height: clamp(280px, 68vw, 420px);
+        }
+        @media (min-width: 768px) {
+            .menu-hero-grid {
+                grid-template-columns: minmax(0, 2.1fr) minmax(300px, 1fr);
+            }
+            .menu-hero-main,
+            .menu-hero-side {
+                height: clamp(420px, 35vw, 560px);
+                min-height: 0;
+            }
+            .menu-hero-side-card {
+                min-height: 0;
+            }
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#1b1c19",
+                    "on-tertiary-fixed": "#271900",
+                    "inverse-surface": "#30312e",
+                    "tertiary-fixed": "#ffdea8",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#a73a00",
+                    "on-surface-variant": "#5b4137",
+                    "tertiary-fixed-dim": "#ffba20",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#5e4200",
+                    "background": "#fbf9f4",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "tertiary-container": "#bf8900",
+                    "primary": "#a73a00",
+                    "on-background": "#1b1c19",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#fbf9f4",
+                    "primary-fixed-dim": "#ffb59a",
+                    "outline": "#8f7065",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#ffdbce",
+                    "outline-variant": "#e4beb1",
+                    "surface-container-high": "#eae8e3",
+                    "on-secondary-fixed-variant": "#474746",
+                    "on-primary-fixed": "#370e00",
+                    "primary-container": "#ff5c00",
+                    "surface-container": "#f0eee9",
+                    "on-primary-container": "#521800",
+                    "surface-dim": "#dbdad5",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "inverse-on-surface": "#f2f1ec",
+                    "surface-variant": "#e4e2dd",
+                    "surface-container-highest": "#e4e2dd",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#ffb59a",
+                    "surface": "#fbf9f4",
+                    "secondary-container": "#e2dfde",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#7c5800",
+                    "secondary-fixed": "#e5e2e1",
+                    "on-tertiary-container": "#3b2800",
+                    "on-primary-fixed-variant": "#802a00",
+                    "secondary": "#5f5e5e",
+                    "surface-container-low": "#f5f3ee",
+                    "on-secondary-container": "#636262"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "xs": "4px",
+                    "base": "8px",
+                    "sm": "12px",
+                    "gutter": "24px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "margin-mobile": "16px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Work Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-md": ["Work Sans"],
+                    "body-md": ["Work Sans"],
+                    "display-lg-mobile": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Work Sans"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "label-md": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "1.1", "fontWeight": "800"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-on-surface shadow-sm docked full-width top-0 sticky z-50 transition-all duration-300" id="main-header">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-7xl mx-auto">
+<div class="font-headline-lg text-headline-lg font-black text-primary dark:text-primary-fixed">Chickmax</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg hover:text-primary transition-colors duration-200" href="index.html">Home</a>
+<a class="text-primary font-bold border-b-2 border-primary font-label-lg hover:text-primary transition-colors duration-200" href="menu.html">Menu</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg hover:text-primary transition-colors duration-200" href="orders.html">Checkout</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant dark:text-surface-variant text-[24px] hover:text-primary transition-colors active:scale-95 transition-transform duration-150" data-icon="shopping_basket">shopping_basket</button>
+<button class="material-symbols-outlined text-on-surface-variant dark:text-surface-variant text-[24px] hover:text-primary transition-colors active:scale-95 transition-transform duration-150" data-icon="person">person</button>
+</div>
+</nav>
+</header>
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-md">
+<!-- Category Hero Selection (Asymmetric Layout) -->
+<section class="mb-xl">
+<div class="menu-hero-grid">
+<div class="menu-hero-main relative rounded-xl overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A macro close-up of a juicy, smoking charcoal-grilled Alfaham chicken leg resting on a bed of aromatic long-grain Mandi rice. The lighting is dramatic and warm, capturing the glistening fats and spices on the charred skin against a dark, rustic kitchen background. The high-contrast image evokes an intense sensory appetite response, highlighting the texture and heat of the grill. Rich oranges and deep charcoals dominate the professional culinary photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvrIy48o6hhv0wKlWKYIeUVwc6MEzUgawZmuXRcHJPe2WFk8D20UxeWAIVYvJdJL9Cq3KglyKx7Ee2KC2s3H0p9EDx-aVSnM7QkSgqRCV83bgWpr5Z_5PzDPAgJN4gxcnH1pO_ZrErkfb-KQqTPzrf5MbkpXufKJGvTj8-f5zVM-i-oLnzj7Yo17MsIq5GjsMRBmjF_oxKs50btdosjTxJKXSc3AxixTAZy_Mw3XHihTAw5wniHPx3egjZxzJIW1tK5msalzeH7FLa">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-lg">
+<span class="text-primary-fixed font-label-lg uppercase mb-xs">Chef's Signature</span>
+<h1 class="text-white font-display-lg text-display-lg-mobile md:text-display-lg mb-sm">The Charcoal Grill</h1>
+<p class="text-surface-variant font-body-lg max-w-lg mb-md">Authentic Alfahams and Mandi slow-cooked over white-hot embers for that deep, smoky soul.</p>
+<button class="bg-primary-container text-on-primary-container font-headline-md px-xl py-4 rounded-full w-fit hover:scale-105 transition-transform active:scale-95">Explore Grill</button>
+</div>
+</div>
+<div class="menu-hero-side">
+<div class="menu-hero-side-card relative rounded-xl overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A stack of premium, crispy fried chicken burgers with oozing cheese and fresh lettuce, captured in a bright, modern studio setting. The lighting is high-key and clean, emphasizing the crunch of the breading and the vibrant green of the vegetables. The palette consists of golden yellows and fresh greens against a minimalist white background. The image feels energetic, fast-casual, and extremely fresh." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3YAGjl6dO4d5a9AdagqFizVDJsPXcgz2b7-gSFnUkMuZOdRQqy-eiTQAOdLTpyH-bfSLPJnvuFEuC1Ep6qZhblLrTPhTFVm8LyrigHPkgx3MRjX0GMAeqg2ELoNGUV-cvTh1HQswQkDs5YZICwbZi7_OB6fSeKlJ9PxQdN4PgF5xx4mMS5ZcgPRgcGGGZM0Ai7h-IfHzwk9IUJ_VZhQXt_99UjlAkPKqMCR0zrHibbbXpkRzIEDcFk62TEnWc4G-f_UxLvBM4J6UB">
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+<h2 class="text-white font-headline-md">Quick Bites</h2>
+</div>
+</div>
+<div class="menu-hero-side-card relative rounded-xl overflow-hidden group"><img class="absolute inset-0 w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNsGeDlCMKShKv8emgF7p4iZqo4FmUjrYz7hut6ms8qfKqe0mhnABWNkqlb2ASETlw4mCk2Evo2d-cmiFwLyUvik2WHzy-oisB_sin7GbucQYqTbhcnwnQGtOmcPSiOplCSknzNyL2myAaj10z63I_8QQJEW9177hVplZ9iG1Dj51-LWpO5SK8GGI5d-Fexstp7LCeC_Uwu5MMour6PfQidNJKeQ6Y_mcA24wppsuAXVl40r9ltoFQ9eUgTcpjt4pBzaQy0kZ3dp3w" alt="Sides and Sips collection showing fries and mango juice">
+
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+<h2 class="text-white font-headline-md">Sides &amp; Sips</h2>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Menu Navigation & Filters -->
+<section class="mb-lg sticky top-[72px] bg-background/95 backdrop-blur-md z-40 py-sm border-b border-outline-variant/30">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<div class="flex gap-sm overflow-x-auto pb-2 md:pb-0 w-full md:w-auto no-scrollbar">
+<button class="bg-on-surface text-surface px-md py-2 rounded-full font-label-lg whitespace-nowrap">All Items</button>
+<button class="bg-surface-container text-on-surface-variant hover:bg-surface-container-high px-md py-2 rounded-full font-label-lg whitespace-nowrap transition-colors">Charcoal Grill</button>
+<button class="bg-surface-container text-on-surface-variant hover:bg-surface-container-high px-md py-2 rounded-full font-label-lg whitespace-nowrap transition-colors">Quick Bites</button>
+<button class="bg-surface-container text-on-surface-variant hover:bg-surface-container-high px-md py-2 rounded-full font-label-lg whitespace-nowrap transition-colors">Sides &amp; Sips</button>
+</div>
+<div class="flex gap-xs w-full md:w-auto">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-xs px-md py-2 border border-outline-variant rounded-lg font-label-md text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px] text-error">local_fire_department</span> Spicy
+                    </button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-xs px-md py-2 border border-outline-variant rounded-lg font-label-md text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px] text-tertiary">eco</span> Vegetarian
+                    </button>
+<button class="flex items-center justify-center px-2 py-2 border border-outline-variant rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Menu Grid -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter mb-xl">
+<!-- Item 1: Alfaham -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group sizzle-glow border border-outline-variant/20 flex flex-col">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A perfectly grilled half chicken Alfaham, marinated in green herbs and spices, showing beautiful grill marks and glistening skin. The dish is presented on a wooden platter with a side of creamy garlic sauce and fresh lemon wedges. The background is a sophisticated, dimly lit charcoal-themed restaurant setting. The warm lighting highlights the steam rising from the hot chicken, creating a mouth-watering and premium look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6Xnges5hSFGvl4cH-Sihc1gsHF01LcRMQqzEJWf0mfQeOmGdUNZ1j9mAv1aVSNUkFq1qV3PASVIlTi70xQ8n2iQI2Cyaj8Opz2IM1r4P-0W2qdacMBvWqubDmLZxdkXgrDEtx5M36qaKQpid2IaWiqUDsz2-LQMPjwl_bKzcSkd-QLwzGINxqgsxOCKkvO5d_CGlmbEXrM0YT_x9UXVZrhAeWL5bwFZ3TOYq7P4wHxt7o3JVK4f41kfG7_K81yObHw2945IxcA60z">
+<div class="absolute top-3 left-3 flex gap-1">
+<span class="bg-error text-white text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-tighter flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">local_fire_department</span> Hot
+                        </span>
+</div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-md text-on-surface leading-tight">Green Chili Alfaham</h3>
+<span class="font-headline-md text-primary">$12.50</span>
+</div>
+<p class="text-on-surface-variant font-body-md line-clamp-2 mb-md">Our signature slow-grilled chicken with a spicy green chili and mint marinade. Served with garlic dip.</p>
+<div class="mt-auto">
+<button class="w-full bg-primary-container text-on-primary-container font-headline-md py-3 rounded-full hover:bg-primary transition-colors flex items-center justify-center gap-base active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                        </button>
+</div>
+</div>
+</div>
+<!-- Item 2: Mandi -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group sizzle-glow border border-outline-variant/20 flex flex-col">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A generous portion of traditional Mandi rice topped with a succulent grilled chicken quarter, garnished with fried onions, raisins, and almonds. The rice is aromatic and colorful with shades of yellow and orange. The image is shot from a top-down perspective on a rustic stone table, bathed in soft afternoon sunlight. The aesthetic is warm and inviting, emphasizing the abundance and high quality of the ingredients." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkV9tyX9gltTNq_UrPETsyswuOloEx1wyw5IZ4-ofDs48ZZB5zaGpYlxJmuO40pZwOCZ4Nry013Fc5KjgF8lCbQHQZktMQL46DovRIL_tEpGa7c9w3b3399IyPjcykGGXFUEUbhfrmHSt9TTXkgxP5lhgQ3kHXPV2zxHZapSGIBYyv5gpJkGQCKr864wkA7ZLI_4MSI4XOkWMCuLAwIthlmKZqbTxSdskIa9uZMLQwUQ_BIZQW1ugHR3rVjcBk36AoqHs__U2Z4kXE">
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-md text-on-surface leading-tight">Chicken Mandi</h3>
+<span class="font-headline-md text-primary">$14.00</span>
+</div>
+<p class="text-on-surface-variant font-body-md line-clamp-2 mb-md">Traditional Yemeni spiced rice served with perfectly charred quarter chicken and tomato salsa.</p>
+<div class="mt-auto">
+<button class="w-full bg-primary-container text-on-primary-container font-headline-md py-3 rounded-full hover:bg-primary transition-colors flex items-center justify-center gap-base active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                        </button>
+</div>
+</div>
+</div>
+<!-- Item 3: Shawarma -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group sizzle-glow border border-outline-variant/20 flex flex-col">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A thick, tightly rolled chicken shawarma wrap cut in half to reveal layers of marinated meat, pickles, and garlic sauce. The background is a vibrant street-food stall with warm glowing lights. The focus is sharp on the texture of the toasted pita and the juicy filling. The color palette is earthy and warm, with pops of white from the sauce. The overall style is modern fast-casual and high-energy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtSo62aHB0VoVr0a2dgdE8HAwbSgnRp11LxB0TL1UJi3WcZiHWAlxhZnMOADyfUCf-cUE9oGAZKDu103B9LNUdfjwHcTrCPsynz-B4eCwI2mfWNR31eExNC-zZkhcjm2K5wk6pmIiyeJJy-4hXXtgPCN4Wxl_NT1C-xMSMdHFKpLCk3-8zCSlxRAo1pDLaZf8f5rC4G53L7ylS8TSiUlWfGQ5g_ZSL77EGnGmiuYgF-73i26pCPMJU80lIVBbwJY1Fq3DJq-L5Z53s">
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-md text-on-surface leading-tight">Classic Shawarma</h3>
+<span class="font-headline-md text-primary">$6.99</span>
+</div>
+<p class="text-on-surface-variant font-body-md line-clamp-2 mb-md">Shredded chicken, pickled veggies, and our secret garlic toum wrapped in a toasted Lebanese bread.</p>
+<div class="mt-auto">
+<button class="w-full bg-primary-container text-on-primary-container font-headline-md py-3 rounded-full hover:bg-primary transition-colors flex items-center justify-center gap-base active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                        </button>
+</div>
+</div>
+</div>
+<!-- Item 4: Momos -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group sizzle-glow border border-outline-variant/20 flex flex-col">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A bamboo steamer basket filled with delicate, translucent steamed chicken momos, served with a vibrant red spicy dipping sauce. The lighting is soft and diffused, highlighting the pleats of the dough. The setting is clean and minimalist with a wooden table surface. The color scheme is neutral with a bold splash of red from the chutney. The image evokes a sense of artisanal, fresh, and healthy snack options." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvAg4yr8QIdVdLmfXttWXGOx8o43lMYMKH_KjKsV29TBhcXQT2pcf2KLsozh_viFgRsUwE-XJ7VHfkB0jYqvauefGJUfDJcTs77nxiN-EuaA2GwhTfGb3Fnn_gqOBT6Arbeq_paR0zvUEiadfoCEKFiREPgGTQrofjYo0yuxJolKYCu4U1YrjSmqwcyoOH7Jz6SGo7tPgFXlxP2SLSs-KZWTHMqBCx1r2Vfobdd6fVAyt0e9l4ml-HTslbr4eUPh5OmmSwzrkc9_Hm">
+<div class="absolute top-3 left-3">
+<span class="bg-tertiary text-on-tertiary text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-tighter">Bestseller</span>
+</div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-md text-on-surface leading-tight">Steamed Momos</h3>
+<span class="font-headline-md text-primary">$8.50</span>
+</div>
+<p class="text-on-surface-variant font-body-md line-clamp-2 mb-md">Hand-folded dumplings filled with succulent chicken and spring onions. Served with hot chili dip.</p>
+<div class="mt-auto">
+<button class="w-full bg-primary-container text-on-primary-container font-headline-md py-3 rounded-full hover:bg-primary transition-colors flex items-center justify-center gap-base active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                        </button>
+</div>
+</div>
+</div>
+<!-- Item 5: Nuggets -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group sizzle-glow border border-outline-variant/20 flex flex-col">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A bucket of golden, extra-crunchy chicken nuggets served with a side of golden fries and several colorful dipping sauces. The lighting is bright and cheerful, emphasizing the crispiness of the breading. The scene is high-energy, typical of a fast-casual dining experience. The color palette features warm golds, bright yellows, and the signature primary orange of the brand. Professional and commercial food photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABWlY4lOV2dNaudsNVq50lR9W5uzqdXaTgBgrURHPGh3A-o_XXqWxRkbuYR8JT-NOOICUpWNxnW1GBF4upCoW4aOJ0TVpaleHsTFjdDEgWGu_6JcOtp-eNypmsvOXFCqGrEU8KFyTrvCCOSlYULSboMUL-64CEe4LfG7q7g7hBHB_JQ9TGH_KJNqWrlwDlSGnwh0eU42dIew6u5Vf8AHu0Az5hYRHHISJrLLvr-vXhlpo3ki-8FXuCe2lSQrEG-CUnEGOzWiQBttlm">
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-md text-on-surface leading-tight">Zesty Nuggets</h3>
+<span class="font-headline-md text-primary">$5.50</span>
+</div>
+<p class="text-on-surface-variant font-body-md line-clamp-2 mb-md">6 pieces of ultra-crispy chicken nuggets with our signature spice blend.</p>
+<div class="mt-auto">
+<button class="w-full bg-primary-container text-on-primary-container font-headline-md py-3 rounded-full hover:bg-primary transition-colors flex items-center justify-center gap-base active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                        </button>
+</div>
+</div>
+</div>
+<!-- Item 6: Shake -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group sizzle-glow border border-outline-variant/20 flex flex-col">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A thick chocolate milkshake topped with whipped cream, chocolate shavings, and a drizzle of syrup, served in a classic glass with a striped straw. The background is a warm, softly blurred diner setting. The lighting is soft and flattering, highlighting the creamy texture of the shake. The color palette is rich browns and whites, feeling decadent and indulgent. High-quality commercial food photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYxDavy4kfZ3wcJK95Da_Jdwj5oOpvbahqy8gyc882o7DlWg6GkABOb68r3-aThANJvHKMeYdekL4SBFBrFbzx5ttr01yFG1xafRTONiNhAh5Gv_gSx0IAoXtEBiABPs3e2IGCfQ_PBcYw_AnpzgE66_e_S2paVZ_1ClwonlzZ5UOkst80kqGTTluJojFEeAifT5_xULDm_hdPvJ46E7AIbgKVPx6pFtAechaEzYBl0m3nR66O_ElHdnt0gHBrEy58VI7m2G3G77Ei">
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-md text-on-surface leading-tight">Death by Choco</h3>
+<span class="font-headline-md text-primary">$7.00</span>
+</div>
+<p class="text-on-surface-variant font-body-md line-clamp-2 mb-md">Premium Belgian chocolate blended with rich dairy and topped with fudge bits.</p>
+<div class="mt-auto">
+<button class="w-full bg-primary-container text-on-primary-container font-headline-md py-3 rounded-full hover:bg-primary transition-colors flex items-center justify-center gap-base active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                        </button>
+</div>
+</div>
+</div>
+<!-- Item 7: Veg Momo -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group sizzle-glow border border-outline-variant/20 flex flex-col">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A plate of vibrant green spinach-wrapped vegetable momos, beautifully arranged and served with a zesty yellow curry sauce. The lighting is bright and natural, reflecting a healthy and fresh vibe. The scene is clean with a light-colored wood background. The colors are predominantly fresh greens and sunny yellows. The style is modern and appetizing, focusing on the plant-based quality of the dish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3RXV1Cfzfy1Aq1s25WzRYHQ_WAMcp-mibu23HDWSZaRmG8iZBJPpbeeFFiWsKdhZ7ffbtUzM--A8-xLb1bIT34CS1wQ2RlAjBrT3B8pa5Qd4LH8jx5MK1sCtZwzEnq9zD-OVMK2-6l9tmnlRwhzKILqc_3Nhzc5MxbsI2hF1xgjfT0dEqn2zYsYClRBnutf5-_-7sJjX8GSrcDE1ZAkoUeHG-Ns8ybtUwebQFhfE4gzaID3DMrLpR61XtUaeU5zaFEorJdAnXrMsQ">
+<div class="absolute top-3 left-3">
+<span class="bg-tertiary text-on-tertiary text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-tighter flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">eco</span> Veg
+                        </span>
+</div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-md text-on-surface leading-tight">Garden Momos</h3>
+<span class="font-headline-md text-primary">$7.50</span>
+</div>
+<p class="text-on-surface-variant font-body-md line-clamp-2 mb-md">Minced farm-fresh vegetables and ginger-garlic paste in a delicate wrap.</p>
+<div class="mt-auto">
+<button class="w-full bg-primary-container text-on-primary-container font-headline-md py-3 rounded-full hover:bg-primary transition-colors flex items-center justify-center gap-base active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                        </button>
+</div>
+</div>
+</div>
+<!-- Item 8: Juice -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group sizzle-glow border border-outline-variant/20 flex flex-col">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A tall glass of vibrant orange mango juice with ice cubes and a fresh mint garnish, positioned on a bright outdoor table under sunny skies. The image is crisp and clear, capturing the condensation on the glass and the vivid color of the juice. The aesthetic is extremely refreshing and natural. The palette is dominated by bright oranges and greens against a high-key, sunlit background. Professional and energetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD_fE4ul7xl47g_0BmLDJDXEbmZsKgwv1D6V7DynyGpK0XqJJ6xo6mkfmv-uKj_AeKYvdeFpgE89hJXZUlpfH1DmcSourhlr2_VKkCCVINxGzMkmm0G1O42CDQOO6rWu3s_j4k21ETdz8_TvuNcmuZlru7e04HXlZmRSXhgBP7tLWd6EbNT0ICKPVam4tq4QPFrW5OVKo5LT0JzzXcyYPyUxWa5Ri_Zf9hOuAzDKRBSLhK7wtPNKLvpPYEaIonjkotO9LI9TEg0V2w">
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-md text-on-surface leading-tight">Alphonso Bliss</h3>
+<span class="font-headline-md text-primary">$4.99</span>
+</div>
+<p class="text-on-surface-variant font-body-md line-clamp-2 mb-md">100% pure Alphonso mango pulp, chilled and served with a hint of mint.</p>
+<div class="mt-auto">
+<button class="w-full bg-primary-container text-on-primary-container font-headline-md py-3 rounded-full hover:bg-primary transition-colors flex items-center justify-center gap-base active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- The "Sizzle" Banner Promotion -->
+<section class="w-full bg-on-surface rounded-2xl p-lg md:p-xl flex flex-col md:flex-row items-center gap-lg overflow-hidden relative mb-xl">
+<div class="absolute top-0 right-0 w-1/3 h-full bg-primary/10 -skew-x-12 translate-x-1/2"></div>
+<div class="flex-1 z-10">
+<span class="text-primary-container font-label-lg uppercase mb-sm block">Weekend Special</span>
+<h2 class="text-white font-display-lg text-display-lg-mobile md:text-display-lg mb-md leading-tight">Double the Crunch,<br>Zero the Guilt.</h2>
+<p class="text-surface-variant font-body-lg mb-lg max-w-md">Get a free side of nuggets with any Mandi combo. Valid until Sunday midnight.</p>
+<button class="bg-white text-on-surface font-headline-md px-xl py-4 rounded-full hover:bg-primary-container hover:text-on-primary-container transition-all">Claim Offer</button>
+</div>
+<div class="flex-1 relative z-10 w-full md:w-auto">
+<img class="rounded-xl shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 w-full max-w-sm mx-auto" data-alt="A dynamic, high-contrast shot of spicy chicken wings flying through the air with splashes of hot sauce and scattered chili peppers. The background is a solid, deep charcoal black, making the vibrant oranges and reds of the chicken and sauce pop intensely. The lighting is sharp and dramatic, capturing every detail of the crispy texture and the fluid movement of the sauce. This high-energy image perfectly fits the bold Chickmax brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeKxEK-tXSNpx6q3aCwDnnHoYEU7fdoPxZCY8NwAQK82L5OPQyhhh-tlnmWvVJvdyBA-uSr7nWbnUKz7GMv2YDck8s7FoHjvMaM8ZUIOKd3u41PDE-jXWLLpFZMDwMoz00noqcSJxv0HgYzVgpxrb39rYKw0M92srpSZE5fGITj7r5swptlUlNtoZRskF6h3hN4JVTkgl_vr9E38uTLoqt3LXFtWY-WAYuLQ85EoutLuup40yG41M9fijqpotHjYqCNRYYHngCatkc">
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-on-surface dark:bg-surface-container-lowest border-t border-outline-variant w-full py-xl px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="flex flex-col gap-md">
+<span class="font-headline-md text-headline-md text-primary-fixed">Chickmax</span>
+<p class="text-surface-variant font-body-md max-w-sm">Premium fast-casual dining experience bringing the heat of the grill to your doorstep.</p>
+<div class="flex gap-md">
+<a class="text-surface-variant hover:text-primary-fixed-dim transition-colors" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="text-surface-variant hover:text-primary-fixed-dim transition-colors" href="#"><span class="material-symbols-outlined">language</span></a>
+<a class="text-surface-variant hover:text-primary-fixed-dim transition-colors" href="#"><span class="material-symbols-outlined">smart_display</span></a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<div class="flex flex-col gap-sm">
+<h4 class="text-white font-label-lg uppercase">Explore</h4>
+<a class="text-surface-variant hover:text-primary-fixed-dim font-body-md" href="#">About Us</a>
+<a class="text-surface-variant hover:text-primary-fixed-dim font-body-md" href="menu.html">Menu</a>
+<a class="text-surface-variant hover:text-primary-fixed-dim font-body-md" href="#">Our Story</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="text-white font-label-lg uppercase">Support</h4>
+<a class="text-surface-variant hover:text-primary-fixed-dim font-body-md" href="#">Contact Support</a>
+<a class="text-surface-variant hover:text-primary-fixed-dim font-body-md" href="#">Privacy Policy</a>
+<a class="text-surface-variant hover:text-primary-fixed-dim font-body-md" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="md:col-span-2 pt-lg border-t border-outline/20">
+<p class="text-surface-variant text-label-md text-center">© 2024 Chickmax. All rights reserved.</p>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface dark:bg-inverse-surface shadow-[0_-4px_12px_rgba(255,92,0,0.08)] md:hidden rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 transition-transform px-4 py-1" href="index.html">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md-mobile">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 active:scale-90 transition-transform hover:scale-105" href="menu.html">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="font-label-md text-label-md-mobile">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 transition-transform px-4 py-1" href="orders.html">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label-md text-label-md-mobile">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 transition-transform px-4 py-1" href="contact.html">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-md text-label-md-mobile">Orders</span>
+</a>
+</nav>
+<script src="js/shared.js"></script>
+<script>
+        // Simple search interaction
+        const searchInput = document.querySelector('input[type="text"]');
+        if (searchInput) {
+            searchInput.addEventListener('focus', () => {
+                searchInput.parentElement.classList.add('scale-105');
+                searchInput.parentElement.classList.add('transition-transform');
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.parentElement.classList.remove('scale-105');
+            });
+        }
+
+        // Header shadow on scroll micro-interaction
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.add('shadow-sm');
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Micro-interaction for Add to Cart
+        const cartButtons = document.querySelectorAll('button');
+        cartButtons.forEach(btn => {
+            if(btn.innerText.includes('Add to Cart')) {
+                btn.addEventListener('click', () => {
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = `<span class="material-symbols-outlined">check_circle</span> Added!`;
+                    btn.classList.replace('bg-primary-container', 'bg-tertiary-container');
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.classList.replace('bg-tertiary-container', 'bg-primary-container');
+                    }, 1500);
+                });
+            }
+        });
+    </script>
+
+
+</body></html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Chickmax | Savor the Flame</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Work+Sans:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/shared.css">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sizzle-glow {
+            box-shadow: 0 4px 20px rgba(255, 92, 0, 0.15);
+        }
+        .pulse-order:hover {
+            animation: pulse-animation 1.5s infinite;
+        }
+        @keyframes pulse-animation {
+            0% { box-shadow: 0 0 0 0px rgba(255, 92, 0, 0.4); }
+            100% { box-shadow: 0 0 0 15px rgba(255, 92, 0, 0); }
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#1b1c19",
+                      "on-tertiary-fixed": "#271900",
+                      "inverse-surface": "#30312e",
+                      "tertiary-fixed": "#ffdea8",
+                      "on-error-container": "#93000a",
+                      "surface-tint": "#a73a00",
+                      "on-surface-variant": "#5b4137",
+                      "tertiary-fixed-dim": "#ffba20",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#5e4200",
+                      "background": "#fbf9f4",
+                      "on-secondary-fixed": "#1c1b1b",
+                      "tertiary-container": "#bf8900",
+                      "primary": "#a73a00",
+                      "on-background": "#1b1c19",
+                      "error-container": "#ffdad6",
+                      "surface-bright": "#fbf9f4",
+                      "primary-fixed-dim": "#ffb59a",
+                      "outline": "#8f7065",
+                      "on-primary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#ffdbce",
+                      "outline-variant": "#e4beb1",
+                      "surface-container-high": "#eae8e3",
+                      "on-secondary-fixed-variant": "#474746",
+                      "on-primary-fixed": "#370e00",
+                      "primary-container": "#ff5c00",
+                      "surface-container": "#f0eee9",
+                      "on-primary-container": "#521800",
+                      "surface-dim": "#dbdad5",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "inverse-on-surface": "#f2f1ec",
+                      "surface-variant": "#e4e2dd",
+                      "surface-container-highest": "#e4e2dd",
+                      "on-error": "#ffffff",
+                      "inverse-primary": "#ffb59a",
+                      "surface": "#fbf9f4",
+                      "secondary-container": "#e2dfde",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary": "#7c5800",
+                      "secondary-fixed": "#e5e2e1",
+                      "on-tertiary-container": "#3b2800",
+                      "on-primary-fixed-variant": "#802a00",
+                      "secondary": "#5f5e5e",
+                      "surface-container-low": "#f5f3ee",
+                      "on-secondary-container": "#636262"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "64px",
+                      "xs": "4px",
+                      "base": "8px",
+                      "sm": "12px",
+                      "gutter": "24px",
+                      "lg": "48px",
+                      "xl": "80px",
+                      "margin-mobile": "16px",
+                      "md": "24px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Plus Jakarta Sans"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "body-lg": ["Work Sans"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "label-md": ["Work Sans"],
+                      "body-md": ["Work Sans"],
+                      "display-lg-mobile": ["Plus Jakarta Sans"],
+                      "display-lg": ["Plus Jakarta Sans"],
+                      "label-lg": ["Work Sans"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "label-md": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "display-lg-mobile": ["36px", {"lineHeight": "1.1", "fontWeight": "800"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-on-surface shadow-sm docked full-width top-0 sticky z-50 transition-all duration-300" id="main-header">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-7xl mx-auto">
+<div class="font-headline-lg text-headline-lg font-black text-primary dark:text-primary-fixed">Chickmax</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="text-primary font-bold border-b-2 border-primary font-label-lg hover:text-primary transition-colors duration-200" href="index.html">Home</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg hover:text-primary transition-colors duration-200" href="menu.html">Menu</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg hover:text-primary transition-colors duration-200" href="orders.html">Checkout</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant dark:text-surface-variant text-[24px] hover:text-primary transition-colors active:scale-95 transition-transform duration-150" data-icon="shopping_basket">shopping_basket</button>
+<button class="material-symbols-outlined text-on-surface-variant dark:text-surface-variant text-[24px] hover:text-primary transition-colors active:scale-95 transition-transform duration-150" data-icon="person">person</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[819px] flex items-center overflow-hidden px-margin-mobile md:px-margin-desktop bg-on-surface">
+<div class="absolute inset-0 z-0">
+<img alt="Savor the Flame" class="w-full h-full object-cover opacity-40" data-alt="A macro shot of sizzling Alfaham chicken on a charcoal grill with dramatic sparks flying and deep amber flames. The scene is shot in a high-contrast cinematic style with dark shadows and intense orange highlights, capturing the raw energy and heat of a professional kitchen. Professional food photography with a shallow depth of field, highlighting the texture of the charred skin and glistening oils." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj95EGZkuR-NNyaRFONcNQ-U9farzRvXwIJ3OYu8lDvBmZh30VB0b3RKD7hDv_R_2AEju5ryOvSohMjjZXyFUbToSp3-hzY0OAhPea9z5k1vgF1AsAStNkfC_VYgqOduN7Ov01kzsRLLBX0Nc4BAfPNeFFw398oMjNA1o_Glv6t0U2AU42RekSkhXLCMaY2T9zr_qC1X-cCzjRUrfly1YF3c6Ztbe1lmNMZHYRl0JYWwenAFake64px3hYiR3X9sL82SXovGw8Wgvo">
+<div class="absolute inset-0 bg-gradient-to-r from-on-surface via-on-surface/60 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-3xl">
+
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-surface mb-6">Where Taste Meets&nbsp;<div class="">Satisfaction</div></h1>
+<p class="font-body-lg text-body-lg text-surface-variant mb-10 max-w-xl">
+                    Experience the ultimate fusion of authentic Alfahams, aromatic Mandi, and gourmet Burgers. Crafted with secret spices and fired to perfection.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary-container text-on-primary-container px-10 py-4 rounded-full font-headline-md pulse-order sizzle-glow transition-all active:scale-95">
+                        Order Now
+                    </button>
+<a href="menu.html" class="border-2 border-surface text-surface px-10 py-4 rounded-full font-headline-md hover:bg-surface hover:text-on-surface transition-all active:scale-95 inline-block">
+                        View Menu
+                    </a>
+</div>
+</div>
+</section>
+<!-- Category Section -->
+<section class="pt-xl px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="flex items-end justify-between mb-gutter">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Browse Categories</h2>
+<div class="h-1 w-20 bg-primary mt-2"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-gutter">
+<!-- Category Card -->
+<button class="group flex flex-col items-center p-6 bg-surface-container rounded-xl hover:bg-primary transition-all duration-300 sizzle-glow">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-4 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container text-4xl" data-icon="restaurant_menu">restaurant_menu</span>
+</div>
+<span class="font-headline-md text-on-surface group-hover:text-surface">Shawarmas</span>
+</button>
+<button class="group flex flex-col items-center p-6 bg-surface-container rounded-xl hover:bg-primary transition-all duration-300 sizzle-glow">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-4 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container text-4xl" data-icon="icecream">icecream</span>
+</div>
+<span class="font-headline-md text-on-surface group-hover:text-surface">Shakes</span>
+</button>
+<button class="group flex flex-col items-center p-6 bg-surface-container rounded-xl hover:bg-primary transition-all duration-300 sizzle-glow">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-4 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container text-4xl" data-icon="lunch_dining">lunch_dining</span>
+</div>
+<span class="font-headline-md text-on-surface group-hover:text-surface">Burgers</span>
+</button>
+<button class="group flex flex-col items-center p-6 bg-surface-container rounded-xl hover:bg-primary transition-all duration-300 sizzle-glow">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-4 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container text-4xl" data-icon="bakery_dining">bakery_dining</span>
+</div>
+<span class="font-headline-md text-on-surface group-hover:text-surface">Momos</span>
+</button>
+<button class="group flex flex-col items-center p-6 bg-surface-container rounded-xl hover:bg-primary transition-all duration-300 sizzle-glow">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-4 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container text-4xl" data-icon="local_fire_department">local_fire_department</span>
+</div>
+<span class="font-headline-md text-on-surface group-hover:text-surface">Alfahams</span>
+</button>
+<button class="group flex flex-col items-center p-6 bg-surface-container rounded-xl hover:bg-primary transition-all duration-300 sizzle-glow">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-4 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container text-4xl" data-icon="grid_view">grid_view</span>
+</div>
+<span class="font-headline-md text-on-surface group-hover:text-surface">More</span>
+</button>
+</div>
+</section>
+<!-- Our Menu (Replaced Trending Now) -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop">
+<div class="max-w-7xl mx-auto">
+<div class="flex items-center justify-between mb-xl">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Explore Our Menu</h2>
+<div class="h-1 w-20 bg-primary mt-2"></div>
+</div>
+<div class="hidden md:flex items-center gap-2">
+<button class="p-2 border border-outline-variant rounded-full text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Menu Item 1: Smoky Alfaham Mandi -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden sizzle-glow group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img alt="Smoky Alfaham" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhjiBUH7E6K2b9MbNqW80GDYkLVMuIiUuBtXWLxptS0a4TtncDJ1rvb_WbbATlmlKE5ZuadimTMYCYxvZS15ThQfZUBqax-YRcBhHK-mWkfHss7-z-QbH_ZdZhq0wOz7KnELanHvEnkd7Gn-gOYf1mMYmd-6z_xXUCyPtAJEWaIiN92Y1vUN7mjXzCuFhPeBv6qqvh4PA7-y9JXv9aaJGa3RQHex5QcD8c2-1nKz3qIuUZYJzY5Vr1UIiGnfAIkZ0OV7D2fFr2Asff">
+<div class="absolute top-4 left-4">
+<span class="bg-primary text-on-primary px-3 py-1 rounded-full text-label-md">Best Seller</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-on-surface">Smoky Alfaham Mandi</h3>
+<span class="font-headline-md text-primary">$18.00</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Authentic charcoal-grilled chicken infused with Arabian spices, served over fragrant long-grain mandi rice.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="font-label-md">4.9 (1.2k)</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Menu Item 2: The Chickmax Burger -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden sizzle-glow group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img alt="The Max Burger" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbrIksOJyg8KjdmHXBThMbGNBIxTnodUawMu_7cEZo8GeBuG-or3J2ubuSrOsptlaEnsZtAPUEiFxB20MbNLswIU7sKgMAjxjtiuFvQ7yutykKq19ROM7zbWqtFHAcagdGwVAh_FGgpx8UULw_Apt1ih2XxUO4wvFT02gd6nXoOczkLBUJU65BZd9a9CZlTC4uZ17WWqOEchx44ayZ8rX0JC0klDU-VqUo6--SjjQ1oB_nTCQe5a4IkC3FO5B4Fr2M5M5x6WRik19O">
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary text-on-tertiary px-3 py-1 rounded-full text-label-md">New Arrival</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-on-surface">The Chickmax Burger</h3>
+<span class="font-headline-md text-primary">$12.50</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Double grilled beef patties, secret sizzle sauce, melted aged cheddar, and house-made brioche bun.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="font-label-md">4.7 (850)</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Menu Item 3: Peri Peri Momos -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden sizzle-glow group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img alt="Spicy Momos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-VUMfZ0bScxijj4T4LO-BNa1PnpzOqwi-M1s8piDosmD9gxuEz32Rmic3aIaPKmoaTJ9V_Ij9AxNDIQtfy8O2FQYb_pscrcslNcds6bLww1Den0QT4HrMH2hrrASYPOBJ-6SIczyDEchcpZPTH3ls5WFcp94EQdtb91gF3PNJpX-4R7CGAdidwPq7fjLSE9dnRpJetD_CiyZ62fGq9__bufUr6o6KBcBEmi_5LATbZSVWYVLbLBwWzgzMylUjl0VRMEURghcyZS3B">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-on-surface">Peri Peri Momos</h3>
+<span class="font-headline-md text-primary">$9.00</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Hand-folded steamed dumplings tossed in spicy Peri Peri sauce with a hint of garlic and lime.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="font-label-md">4.8 (2k)</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Menu Item 4: Classic Shawarma -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden sizzle-glow group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img alt="Classic Shawarma" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Thinly sliced roasted chicken wrapped in soft pita with garlic sauce, fries, and pickles. High-resolution shot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvDvWH-Gpl9w67NdMXvn1jZMOIQ7XncUjeZfP3JYCgvvJ1lvPEZyVf-i5O3Fr4r1-dkrpkD7evBLja8Kutasaha4A2JaYdBf64cY4mmdY1Q4_HVksABJuODd0VUwb4yCt9EZs_kBvBUDXvMW3MtjZvvWxhi9Z0GgAhDY3MGjzSfCBTmk7HaLys63GwOEND5ldwPeQbYfp9wTXvFI7hmycKtIiMXRQxTx1AzFfQutcYaxuFwL2gPLJIX7bEIFTowAtZI7DV9w2np0CC">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-on-surface">Classic Shawarma</h3>
+<span class="font-headline-md text-primary">$10.00</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Slow-roasted chicken breast marinated in traditional spices, served with our signature garlic toum.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="font-label-md">4.6 (500)</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Menu Item 5: Sizzling Shakes -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden sizzle-glow group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img alt="Chocolate Shake" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A thick chocolate milkshake topped with whipped cream and chocolate drizzle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfG-tIqQ6kYXjipxv8-e4_XBK1moNn2JY4kmGFx_1cmv-bPISAH8fJS_B1PhpAHSZ5Enjqd04JAAcKyyIKApfLLcF4c_6O5HkxBLqCIlf5odoRDRn2626bPX3ymg68vV59s3FZYVDsIgRxuBtiBXh0_nMKplh-FW2l8ctOTtjOO-iXZak7eR-TSsvBngjnm5JgHWBJ06A1tYU-r2YTO-rHem2_QHqGoiL3nzflSbDIJ0L1jCVlBc0QhRmj41g61Zea4HobtyPbjnJ5">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-on-surface">Midnight Cocoa Shake</h3>
+<span class="font-headline-md text-primary">$7.50</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Premium dark chocolate blended with velvety ice cream and topped with cocoa shavings.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="font-label-md">4.9 (320)</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Menu Item 6: Grill Platter -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden sizzle-glow group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img alt="Grill Platter" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Assorted grilled meats including kebabs and wings on a wooden platter." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA078S466MJpn6cYCjp7eJZTn2sm6OWsuFqByRVZfni9WqFZpbtI5Bz7Di0-zgtQBmRdqBVfqMoG4ApWUgOkFoFdodbvSWgwZhY4u_bS34zkbYcLNlXzQ4bEi3-obkRyRmKJK_mnMTAmF9yS9voYP4swN2GQbo5Ffae8HknJeTeiJtrSOdom1eeb7aH9ZeTv_fBt9yUkww335hiQzaAop9XSHQFQNweKzpzaYTFs_8lvqX0wWqpl3YCx-LOv-8Yyr2jxmtxm_s-BPUt">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-on-surface">Max Grill Platter</h3>
+<span class="font-headline-md text-primary">$24.00</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">A feast of smoky Alfaham, wings, and seekh kebabs served with grilled veggies and spicy dip.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="font-label-md">4.8 (120)</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-xl text-center">
+<button class="border-2 border-primary text-primary px-10 py-4 rounded-full font-headline-md hover:bg-primary hover:text-on-primary transition-all active:scale-95">
+                Load More Items
+            </button>
+</div>
+</div>
+</section>
+<!-- Sizzle Banner -->
+
+</main>
+<!-- Footer -->
+<footer class="bg-on-surface dark:bg-surface-container-lowest text-surface-variant w-full py-xl px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md">
+<div class="col-span-1 md:col-span-2 lg:col-span-1">
+<div class="font-headline-md text-headline-md text-primary-fixed mb-4">Chickmax</div>
+<p class="font-body-md text-body-md mb-6 max-w-xs">Fueling your hunger with the finest flames and freshest ingredients since 2018.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container-highest/20 flex items-center justify-center hover:bg-primary-container transition-colors" href="#">
+<span class="material-symbols-outlined text-surface" data-icon="share">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-highest/20 flex items-center justify-center hover:bg-primary-container transition-colors" href="#">
+<span class="material-symbols-outlined text-surface" data-icon="public">public</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-label-lg text-primary-fixed mb-4 uppercase tracking-wider">Quick Links</h4>
+<ul class="space-y-3">
+<li class=""><a class="text-surface-variant hover:text-primary-fixed-dim transition-colors font-body-md" href="#">About Us</a></li>
+<li class=""><a class="text-surface-variant hover:text-primary-fixed-dim transition-colors font-body-md" href="#">Terms of Service</a></li>
+<li class=""><a class="text-surface-variant hover:text-primary-fixed-dim transition-colors font-body-md" href="#">Privacy Policy</a></li>
+<li class=""><a class="text-surface-variant hover:text-primary-fixed-dim transition-colors font-body-md" href="#">Contact Support</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-lg text-primary-fixed mb-4 uppercase tracking-wider">Cuisines</h4>
+<ul class="space-y-3">
+<li class=""><a class="text-surface-variant hover:text-primary-fixed-dim transition-colors font-body-md" href="#">Arabian Alfaham</a></li>
+<li class=""><a class="text-surface-variant hover:text-primary-fixed-dim transition-colors font-body-md" href="#">Gourmet Burgers</a></li>
+<li class=""><a class="text-surface-variant hover:text-primary-fixed-dim transition-colors font-body-md" href="#">Artisan Momos</a></li>
+<li class=""><a class="text-surface-variant hover:text-primary-fixed-dim transition-colors font-body-md" href="#">Thick Shakes</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-lg text-primary-fixed mb-4 uppercase tracking-wider">Newsletter</h4>
+<p class="font-body-md mb-4">Get the latest sizzle delivered to your inbox.</p>
+<div class="flex">
+<input class="bg-surface-container-highest/10 border border-outline-variant rounded-l-lg px-4 py-2 w-full text-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Email" type="email">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-r-lg">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</div>
+<div class="col-span-full border-t border-outline-variant/30 mt-xl pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md text-surface-variant">© 2024 Chickmax. All rights reserved.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-surface-variant" data-icon="payments">payments</span>
+<span class="material-symbols-outlined text-surface-variant" data-icon="credit_card">credit_card</span>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface dark:bg-inverse-surface shadow-[0_-4px_12px_rgba(255,92,0,0.08)] md:hidden rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 active:scale-90 transition-transform hover:scale-105" href="index.html">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md-mobile">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 transition-transform px-4 py-1" href="menu.html">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="font-label-md text-label-md-mobile">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 transition-transform px-4 py-1" href="orders.html">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label-md text-label-md-mobile">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 transition-transform px-4 py-1" href="contact.html">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-md text-label-md-mobile">Orders</span>
+</a>
+</nav>
+<script src="js/shared.js"></script>
+<script>
+        // Header shadow on scroll micro-interaction
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.add('shadow-sm');
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Add to cart interaction
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if(this.querySelector('[data-icon="add_shopping_cart"]')) {
+                    const originalIcon = this.innerHTML;
+                    this.innerHTML = '<span class="material-symbols-outlined" style="font-variation-settings: \'FILL\' 1;">check_circle</span>';
+                    setTimeout(() => {
+                        this.innerHTML = originalIcon;
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+
+
+</body></html>

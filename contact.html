@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chickmax - Order Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/shared.css">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pulse-orange {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: .8; transform: scale(1.05); }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#1b1c19",
+                        "on-tertiary-fixed": "#271900",
+                        "inverse-surface": "#30312e",
+                        "tertiary-fixed": "#ffdea8",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#a73a00",
+                        "on-surface-variant": "#5b4137",
+                        "tertiary-fixed-dim": "#ffba20",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#5e4200",
+                        "background": "#fbf9f4",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "tertiary-container": "#bf8900",
+                        "primary": "#a73a00",
+                        "on-background": "#1b1c19",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fbf9f4",
+                        "primary-fixed-dim": "#ffb59a",
+                        "outline": "#8f7065",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#ffdbce",
+                        "outline-variant": "#e4beb1",
+                        "surface-container-high": "#eae8e3",
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-primary-fixed": "#370e00",
+                        "primary-container": "#ff5c00",
+                        "surface-container": "#f0eee9",
+                        "on-primary-container": "#521800",
+                        "surface-dim": "#dbdad5",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "inverse-on-surface": "#f2f1ec",
+                        "surface-variant": "#e4e2dd",
+                        "surface-container-highest": "#e4e2dd",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#ffb59a",
+                        "surface": "#fbf9f4",
+                        "secondary-container": "#e2dfde",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#7c5800",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-tertiary-container": "#3b2800",
+                        "on-primary-fixed-variant": "#802a00",
+                        "secondary": "#5f5e5e",
+                        "surface-container-low": "#f5f3ee",
+                        "on-secondary-container": "#636262"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "gutter": "24px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "margin-mobile": "16px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Work Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Work Sans"],
+                        "body-md": ["Work Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "label-lg": ["Work Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "label-md": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "1.1", "fontWeight": "800"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-on-surface shadow-sm docked full-width top-0 sticky z-50 transition-all duration-300" id="main-header">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-7xl mx-auto">
+<div class="font-headline-lg text-headline-lg font-black text-primary dark:text-primary-fixed">Chickmax</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg hover:text-primary transition-colors duration-200" href="index.html">Home</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg hover:text-primary transition-colors duration-200" href="menu.html">Menu</a>
+<a class="text-primary font-bold border-b-2 border-primary font-label-lg hover:text-primary transition-colors duration-200" href="contact.html">Orders</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant dark:text-surface-variant text-[24px] hover:text-primary transition-colors active:scale-95 transition-transform duration-150" data-icon="shopping_basket">shopping_basket</button>
+<button class="material-symbols-outlined text-on-surface-variant dark:text-surface-variant text-[24px] hover:text-primary transition-colors active:scale-95 transition-transform duration-150" data-icon="person">person</button>
+</div>
+</nav>
+</header>
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-md md:py-xl min-h-[calc(100vh-180px)]">
+<!-- Status & Delivery Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left: Status Info -->
+<div class="lg:col-span-5 space-y-md">
+<section class="bg-surface-container-lowest p-md md:p-lg rounded-xl shadow-[0_4px_12px_rgba(255,92,0,0.08)]">
+<div class="flex items-center gap-base mb-sm">
+<span class="w-3 h-3 bg-primary rounded-full pulse-orange"></span>
+<span class="font-label-lg text-primary uppercase tracking-widest">Order #CM-9821</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-xs">Preparing your order</h1>
+<p class="font-body-md text-on-surface-variant">The chef is grilling your Chickmax favorites right now.</p>
+<div class="mt-lg flex items-center justify-between bg-surface-container rounded-xl p-md">
+<div>
+<p class="font-label-md text-on-surface-variant uppercase">Estimated Arrival</p>
+<p class="font-display-lg text-headline-lg text-primary">12:45 PM</p>
+</div>
+<div class="text-right">
+<p class="font-label-md text-on-surface-variant uppercase">Time remaining</p>
+<p class="font-display-lg text-headline-lg text-primary">~15 min</p>
+</div>
+</div>
+</section>
+<!-- Driver Card -->
+<section class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant flex items-center gap-md">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A professional delivery driver headshot with a friendly smile, wearing a clean branded uniform. The lighting is bright and natural, reflecting a high-quality fast-casual service brand aesthetic. The background is slightly blurred but suggests a modern urban environment with a warm, energetic vibe consistent with the charcoal and orange brand palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmq-V58eTgSm0JnHNL0oBqOOpbPT6chEsXjrODcUwx6F2lTWqE9M4by-tJEPwSEqdrVVHabSptFIyiHYxj_Vh8NveJOKUpeAwGK5O09UQNsFRc3FjrDKjuJH6QBgwg1Jx1rvsk6oyXJ6xw5Tl89IE_8OdzXDBrgLvxm0-dYYWsQoUAbOwLZO4xslpcWXgvo_qae6AAknTL4HT_hEUBtj_tzAf4qf1VTU9YJotRu5gWugVmDfG88CkGmtewebb8qAsGtVxmAfTVUUsB"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-on-surface">Ricardo S.</h3>
+<p class="font-body-md text-on-surface-variant">Top-rated delivery partner</p>
+</div>
+<button class="bg-primary text-on-primary w-12 h-12 rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+</button>
+</section>
+</div>
+<!-- Right: Map Section -->
+<div class="lg:col-span-7 h-[400px] lg:h-[600px] rounded-xl overflow-hidden shadow-lg relative border-4 border-surface-container-lowest">
+<div class="absolute inset-0 bg-surface-variant">
+<img class="w-full h-full object-cover opacity-80" data-alt="A stylized digital map showing a city landscape with a highlighted delivery route. A pulsing orange icon represents the delivery driver moving through a clean, light-mode grid of streets. The aesthetic is modern and high-contrast, using the brand's primary orange for the route and charcoal accents for points of interest, creating an interactive and premium feel." data-location="New York" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnkpQ9bLfuzukJfZhUAscdtFJIaVvGqitXYgZp6-iVF1uCdVD_N9lDW6N-TrfyAH9ODBd264zzrucwZUf0MkBZTgqnYupqaThAtcTA_yrKACflbvOsIA2lT56AJPYwYd7l6Cvp92H0WsiNyczdcSqdPnmwoXmtCMicZWz2WPibyJuZ64ggXbHleWVslvHQTZfhMcSuqul1bPW86JV1jaXQPveqXfInH4vnw_h27xCrP59wljgOFCzhWQ0dBetvYnUCJHpxdbckoEIS"/>
+</div>
+<!-- Map Overlay -->
+<div class="absolute top-md left-md bg-on-surface text-on-primary-fixed px-md py-sm rounded-full shadow-lg flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary-container">location_on</span>
+<span class="font-label-lg">On the way from Chickmax Downtown</span>
+</div>
+<!-- Custom Marker Overlay (Visual Mockup) -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="relative">
+<div class="w-10 h-10 bg-primary-container rounded-full flex items-center justify-center shadow-lg border-2 border-white pulse-orange">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">pedal_bike</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Summary Detail -->
+<section class="mt-lg md:mt-xl">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-md">Order Summary</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="md:col-span-2 space-y-base">
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest p-md rounded-xl flex items-center gap-md border border-outline-variant">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close up photography of a crispy fried chicken sandwich with fresh lettuce and sauce on a toasted bun. The lighting is high-contrast, emphasizing the golden texture of the chicken. The shot is vibrant and appetizing, styled for a premium fast-casual dining experience with a warm, energetic atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgm2EjogpP8-XJFkFgdaYn9GO48stsJMKniSI6clZUo_XfXxPEQNmpcbKLEr-ikjEOqH8577cYdqsfyd5pzfzJTMSWqSjg76n3f1glshnf1vakYhbfYerjo6m-zmbvrVRTxXJH47gIsp89H9QZ9cdYJDmRzVt0xWSk6zlTzN56pOJHe8vX3Y65v1DRFHjBlJUgd1djCL2O3Kb32w5br6-FSbm3AX71NcHpfzz7Q7nVRkHL_qzZn-3r3BcN8p9h6LG8Q6grG60gdrx0"/>
+</div>
+<div class="flex-1">
+<h4 class="font-headline-md text-on-surface text-body-lg">The Sizzler Burger</h4>
+<p class="font-body-md text-on-surface-variant">Extra Spicy, No Pickles</p>
+</div>
+<div class="text-right">
+<p class="font-label-lg text-on-surface">x2</p>
+<p class="font-headline-md text-primary">$24.00</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest p-md rounded-xl flex items-center gap-md border border-outline-variant">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A bowl of golden, crispy seasoned fries served in a branded container. The shot features warm lighting and shallow depth of field, highlighting the salt crystals and spices. The vibe is high-energy and modern, fitting for a premium digital culinary service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9tFre7VHOzJV0mO85cHQAgDcNvlwSYtfqSC8da8C1sQrQWRwLHloT-qZ0Uv2NYCjhHcNQVPX7Jn7YvmAVh8UmmsvmEVvXOUH2bnObEGlliLuvIjqnlWVFGNTSMiunXYCa2ple1fqUUcH3akOhN7h5RYeO44mStc2XsawtWqAn62BKmnALPPIlqmAg4QXoNZECl-OiUeipDlmS45eNuKeFq0lK_Ll04-JaNJgTboQAQzaqhVQSnOnLvjSYnNZ8dWDvOvT4K7-t4py2"/>
+</div>
+<div class="flex-1">
+<h4 class="font-headline-md text-on-surface text-body-lg">Cajun Seasoned Fries</h4>
+<p class="font-body-md text-on-surface-variant">Large Size</p>
+</div>
+<div class="text-right">
+<p class="font-label-lg text-on-surface">x1</p>
+<p class="font-headline-md text-primary">$6.50</p>
+</div>
+</div>
+</div>
+<!-- Total Column -->
+<div class="bg-surface-container p-md md:p-lg rounded-xl flex flex-col justify-between border-t-4 border-primary">
+<div class="space-y-sm">
+<div class="flex justify-between font-body-md">
+<span class="text-on-surface-variant">Subtotal</span>
+<span class="text-on-surface">$30.50</span>
+</div>
+<div class="flex justify-between font-body-md">
+<span class="text-on-surface-variant">Delivery Fee</span>
+<span class="text-on-surface">$2.99</span>
+</div>
+<div class="flex justify-between font-body-md">
+<span class="text-on-surface-variant">Service Fee</span>
+<span class="text-on-surface">$1.50</span>
+</div>
+<hr class="border-outline-variant my-base"/>
+<div class="flex justify-between font-headline-md">
+<span class="text-on-surface">Total</span>
+<span class="text-primary">$34.99</span>
+</div>
+</div>
+<button class="w-full mt-lg bg-on-surface text-on-primary-fixed py-md rounded-full font-label-lg hover:opacity-90 transition-opacity active:scale-95">
+                        Download Receipt
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-on-surface dark:bg-surface-container-lowest border-t border-outline-variant w-full py-xl px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-md">
+<div>
+<div class="font-headline-md text-headline-md text-primary-fixed mb-sm">Chickmax</div>
+<p class="text-surface-variant font-body-md mb-md max-w-sm">Serving the hottest, crispiest grilled and fried chicken since 2024. Your quality fast-casual choice.</p>
+<p class="text-surface-variant font-label-lg">© 2024 Chickmax. All rights reserved.</p>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<div class="flex flex-col gap-sm">
+<a class="text-surface-variant hover:text-primary-fixed-dim transition-colors font-label-lg" href="#">About Us</a>
+<a class="text-surface-variant hover:text-primary-fixed-dim transition-colors font-label-lg" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="text-surface-variant hover:text-primary-fixed-dim transition-colors font-label-lg" href="#">Privacy Policy</a>
+<a class="text-surface-variant hover:text-primary-fixed-dim transition-colors font-label-lg" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface dark:bg-inverse-surface shadow-[0_-4px_12px_rgba(255,92,0,0.08)] md:hidden rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 transition-transform px-4 py-1" href="index.html">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md-mobile">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 transition-transform px-4 py-1" href="menu.html">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="font-label-md text-label-md-mobile">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors active:scale-90 transition-transform px-4 py-1" href="orders.html">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label-md text-label-md-mobile">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 active:scale-90 transition-transform hover:scale-105" href="contact.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-md text-label-md-mobile">Orders</span>
+</a>
+</nav>
+<script src="js/shared.js"></script>
+<script>
+        // Header shadow on scroll micro-interaction
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.add('shadow-sm');
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Micro-interaction for driver button
+        const driverBtn = document.querySelector('button .material-symbols-outlined[style*="FILL: 1"]')?.parentElement;
+        if (driverBtn) {
+            driverBtn.addEventListener('click', () => {
+                alert('Connecting you to Ricardo...');
+            });
+        }
+    </script>
+</body></html>
